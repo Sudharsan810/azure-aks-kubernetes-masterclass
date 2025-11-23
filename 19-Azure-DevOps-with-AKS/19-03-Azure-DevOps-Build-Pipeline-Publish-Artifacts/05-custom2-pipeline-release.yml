@@ -12,7 +12,7 @@ variables:
   tag: '$(resources.pipeline.akskubernetesbuild.runID)'
 
 stages:
-- stage: Deploy-Dev
+- stage: Deploy_Dev
   displayName: Deploy Dev stage
   jobs:
   - deployment: Deploy
