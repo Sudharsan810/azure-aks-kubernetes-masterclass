@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: acrdemo-localdocker
-          image: acrforaksdemo1.azurecr.io/custom2aksnginxapp1:20
+          image: acrforaksdemo1.azurecr.io/custom2aksnginxapp1:22
           imagePullPolicy: Always
           ports:
             - containerPort: 80
