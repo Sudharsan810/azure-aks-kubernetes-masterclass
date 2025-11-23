@@ -43,6 +43,6 @@ stages:
               kubernetesServiceConnection: 'aksdemo-dev-sc'
               namespace: 'dev'
               action: deploy
-              manifests: $(Pipeline.Workspace)/kube-manifests/01-Deployment-and-LoadBalancer-Service.yml
+              manifests: $(Pipeline.Workspace)/akskubernetesbuild/kube-manifests/01-Deployment-and-LoadBalancer-Service.yml
               imagePullSecrets: 'acr-imagepullsecret'
               containers: acrforaksdemo1.azurecr.io/custom2aksnginxapp1:$(tag)
