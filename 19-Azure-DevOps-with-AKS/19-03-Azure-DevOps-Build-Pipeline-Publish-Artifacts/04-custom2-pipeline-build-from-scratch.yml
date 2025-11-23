@@ -29,7 +29,7 @@ stages:
         containerRegistry: 'acrforaksdemo1-sc'
         repository: 'custom2aksnginxapp1'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: '19-Azure-DevOps-with-AKS/19-03-Azure-DevOps-Build-Pipeline-Publish-Artifacts/docker-manifests/Dockerfile'
         tags: |
           $(tag)
           $(Build.SourceVersion)
@@ -41,7 +41,7 @@ stages:
     # Target Directory: $(Build.ArtifactStagingDirectory)
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)/kube-manifests'
+        SourceFolder: '19-Azure-DevOps-with-AKS/19-03-Azure-DevOps-Build-Pipeline-Publish-Artifacts/kube-manifests'
         Contents: '**'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
         OverWrite: true
