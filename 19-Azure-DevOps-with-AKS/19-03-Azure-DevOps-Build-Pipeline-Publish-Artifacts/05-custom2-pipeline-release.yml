@@ -34,7 +34,7 @@ stages:
               namespace: 'dev'
               action: createSecret
               secretType: 'dockerRegistry'
-              secretName: 'ACRImagePullSecret'
+              secretName: 'acr_imagepullsecret'
               dockerRegistryEndpoint: 'acrforaksdemo1-sc'
               
           - task: KubernetesManifest@1
@@ -44,7 +44,5 @@ stages:
               namespace: 'dev'
               action: deploy
               manifests: $(Pipeline.Workspace)/kube-manifests/01-Deployment-and-LoadBalancer-Service.yml
-              imagePullSecrets: |
-                $(ACRImagePullSecret)
-              containers: |
-                acrforaksdemo1.azurecr.io/custom2aksnginxapp1:$(tag)
+              imagePullSecrets: 'acr_imagepullsecret'
+              containers: acrforaksdemo1.azurecr.io/custom2aksnginxapp1:$(tag)
