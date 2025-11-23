@@ -30,6 +30,8 @@ stages:
           - task: KubernetesManifest@1
             displayName: Create imagePullSecret
             inputs:
+              kubernetesServiceConnection: 'aksdemo-dev-sc'
+              namespace: 'dev'
               action: createSecret
               secretType: 'dockerRegistry'
               secretName: 'ACRImagePullSecret'
@@ -38,6 +40,8 @@ stages:
           - task: KubernetesManifest@1
             displayName: Deploy to Kubernetes cluster
             inputs:
+              kubernetesServiceConnection: 'aksdemo-dev-sc'
+              namespace: 'dev'
               action: deploy
               manifests: $(Pipeline.Workspace)/kube-manifests/01-Deployment-and-LoadBalancer-Service.yml
               imagePullSecrets: |
